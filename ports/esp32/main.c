@@ -70,6 +70,9 @@
 #include "modespnow.h"
 #endif
 
+#if MICROPY_PY_ESPMESH
+#include "modespmesh.h"
+#endif
 // MicroPython runs as a task under FreeRTOS
 #define MP_TASK_PRIORITY        (ESP_TASK_PRIO_MIN + 1)
 
@@ -175,6 +178,11 @@ soft_reset_exit:
     #if MICROPY_PY_ESPNOW
     espnow_deinit(mp_const_none);
     MP_STATE_PORT(espnow_singleton) = NULL;
+    #endif
+
+    #if MICROPY_PY_ESPMESH
+    espmesh_deinit(mp_const_none);
+    MP_STATE_PORT(espmesh_singleton) = NULL;
     #endif
 
     machine_timer_deinit_all();

@@ -90,6 +90,9 @@
 #ifndef MICROPY_PY_ESPNOW
 #define MICROPY_PY_ESPNOW                   (1)
 #endif
+#ifndef MICROPY_PY_ESPMESH
+#define MICROPY_PY_ESPMESH                  (1)
+#endif
 #ifndef MICROPY_PY_BLUETOOTH
 #define MICROPY_PY_BLUETOOTH                (1)
 #define MICROPY_PY_BLUETOOTH_USE_SYNC_EVENTS (1)
